@@ -1,10 +1,15 @@
 import express from "express";
 import { Server as SocketServer } from "socket.io";
+import { inject } from "@vercel/analytics";
+
 import http from "http";
 import { Chess } from "chess.js";
 import path from "path";
 import { fileURLToPath } from "url";
+import { injectSpeedInsights } from "@vercel/speed-insights";
 
+injectSpeedInsights();
+inject();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
